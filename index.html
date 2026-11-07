@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الصفحة الشخصية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="public">
+  <main class="profile">
+    <header class="hero">
+      <div class="avatar" id="avatar" aria-hidden="true"></div>
+      <div>
+        <h1 id="name"></h1>
+        <p class="job" id="title"></p>
+        <p class="where" id="location"></p>
+      </div>
+    </header>
+
+    <section class="block">
+      <h2>نبذة</h2>
+      <p id="bio" class="bio"></p>
+    </section>
+
+    <section class="block" id="skillsBlock">
+      <h2>المهارات</h2>
+      <ul class="chips" id="skills"></ul>
+    </section>
+
+    <section class="block">
+      <h2>تواصل معي</h2>
+      <ul class="links" id="contacts"></ul>
+    </section>
+
+    <footer class="foot">
+      <a href="admin.html">لوحة التحكم</a>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

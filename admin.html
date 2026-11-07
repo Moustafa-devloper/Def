@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>لوحة التحكم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin">
+
+  <!-- تسجيل الدخول -->
+  <section class="login" id="loginView">
+    <form id="loginForm" class="card">
+      <h1>دخول المدير</h1>
+      <label for="pass">كلمة المرور</label>
+      <input type="password" id="pass" autocomplete="current-password" required>
+      <p class="error" id="loginError" role="alert"></p>
+      <button class="btn primary" type="submit">دخول</button>
+      <p class="hint">كلمة المرور الافتراضية: <b>admin123</b> — غيّرها بعد الدخول.</p>
+      <a href="index.html" class="back">العودة للصفحة</a>
+    </form>
+  </section>
+
+  <!-- لوحة التحكم -->
+  <div class="admin" id="adminView" hidden>
+    <header class="bar">
+      <h1>لوحة التحكم</h1>
+      <div class="bar-actions">
+        <a class="btn" href="index.html" target="_blank">عرض الصفحة</a>
+        <button class="btn" id="logout" type="button">خروج</button>
+      </div>
+    </header>
+
+    <form id="profileForm" class="grid">
+      <fieldset class="card">
+        <legend>المعلومات الأساسية</legend>
+
+        <label for="f_photo">الصورة الشخصية</label>
+        <div class="photo-row">
+          <div class="avatar small" id="photoPreview"></div>
+          <input type="file" id="f_photo" accept="image/*">
+          <button class="btn" type="button" id="removePhoto">حذف الصورة</button>
+        </div>
+
+        <label for="f_name">الاسم</label>
+        <input id="f_name" required>
+
+        <label for="f_title">المسمى الوظيفي</label>
+        <input id="f_title">
+
+        <label for="f_location">الموقع</label>
+        <input id="f_location">
+
+        <label for="f_bio">نبذة</label>
+        <textarea id="f_bio" rows="5"></textarea>
+
+        <label for="f_skills">المهارات (افصل بينها بفاصلة)</label>
+        <input id="f_skills" placeholder="تصميم، برمجة، كتابة">
+      </fieldset>
+
+      <fieldset class="card">
+        <legend>التواصل</legend>
+
+        <label for="f_email">البريد الإلكتروني</label>
+        <input type="email" id="f_email" dir="ltr">
+
+        <label for="f_phone">الهاتف</label>
+        <input id="f_phone" dir="ltr">
+
+        <label for="f_github">GitHub</label>
+        <input id="f_github" dir="ltr" placeholder="https://github.com/username">
+
+        <label for="f_linkedin">LinkedIn</label>
+        <input id="f_linkedin" dir="ltr" placeholder="https://linkedin.com/in/username">
+
+        <label for="f_twitter">X / Twitter</label>
+        <input id="f_twitter" dir="ltr" placeholder="https://x.com/username">
+
+        <div class="row">
+          <button class="btn primary" type="submit">حفظ التغييرات</button>
+          <span class="saved" id="savedMsg" role="status"></span>
+        </div>
+      </fieldset>
+    </form>
+
+    <section class="card tools">
+      <h2>أدوات</h2>
+      <div class="row wrap">
+        <button class="btn" type="button" id="exportBtn">تصدير البيانات</button>
+        <label class="btn file-btn">استيراد البيانات
+          <input type="file" id="importFile" accept="application/json" hidden>
+        </label>
+        <button class="btn danger" type="button" id="resetBtn">إعادة الضبط</button>
+      </div>
+    </section>
+
+    <form id="passForm" class="card tools">
+      <h2>تغيير كلمة المرور</h2>
+      <div class="row wrap">
+        <input type="password" id="newPass" placeholder="كلمة مرور جديدة (٦ أحرف على الأقل)" minlength="6" autocomplete="new-password" required>
+        <button class="btn" type="submit">تغيير</button>
+        <span class="saved" id="passMsg" role="status"></span>
+      </div>
+    </form>
+
+    <p class="hint center">البيانات تُحفظ في متصفحك فقط (localStorage). الحماية هنا للتجربة وليست حماية حقيقية على خادم.</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
